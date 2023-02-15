@@ -56,15 +56,39 @@
 		264DFEDC260D07EF0035EA15 /* Pr2503 */ = {
 			isa = PBXGroup;
 			children = (
+				E43F8DA6299CE3A5008CEDA7 /* Sources */,
+				E43F8DA7299CE3EC008CEDA7 /* Resources */,
+			);
+			path = Pr2503;
+			sourceTree = "<group>";
+		};
+		E43F8DA5299CE38D008CEDA7 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				264DFEDD260D07EF0035EA15 /* AppDelegate.swift */,
 				264DFEDF260D07EF0035EA15 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E43F8DA6299CE3A5008CEDA7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E43F8DA5299CE38D008CEDA7 /* App */,
 				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E43F8DA7299CE3EC008CEDA7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				264DFEE3260D07EF0035EA15 /* Main.storyboard */,
 				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
 				264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */,
 				264DFEEB260D07F00035EA15 /* Info.plist */,
 			);
-			path = Pr2503;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
