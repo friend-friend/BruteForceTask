@@ -8,14 +8,12 @@
 import Foundation
 
 extension String {
-    var digits:      String { return "0123456789" }
-    var lowercase:   String { return "abcdefghijklmnopqrstuvwxyz" }
-    var uppercase:   String { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
-    var punctuation: String { return "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" }
-    var letters:     String { return lowercase + uppercase }
-    var printable:   String { return digits + letters + punctuation }
-
-
+    private static let digits = "0123456789"
+    private static let lowercase = "abcdefghijklmnopqrstuvwxyz"
+    private static let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    private static let punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    private static let letters = lowercase + uppercase
+    static let printable = digits + letters + punctuation
 
     mutating func replace(at index: Int, with character: Character) {
         var stringArray = Array(self)

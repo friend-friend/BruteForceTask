@@ -37,16 +37,19 @@ final class ViewController: UIViewController {
             stopGeneratePasswordButton.isEnabled = isPasswordGenerated
         }
     }
-    
-    @IBAction func onBut(_ sender: Any) {
-        isBlack.toggle()
-    }
-    
+
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+
+    // MARK: - Actions
     
+    @IBAction func onBut(_ sender: Any) {
+        isBlack.toggle()
+    }
 
 }
 
