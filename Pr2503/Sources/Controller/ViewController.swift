@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
 
     private var isBlack = false {
         didSet {
-            view.backgroundColor = isBlack ? .black : .white
+            view.backgroundColor = isBlack ? .gray : .white
         }
     }
 
@@ -37,7 +37,7 @@ final class ViewController: UIViewController {
         }
     }
 
-    private let passwordSelection = PasswordSelection()
+    private let passwordSelection = PasswordSelection.instance
 
     // MARK: - Lifecycle
 
@@ -57,12 +57,24 @@ final class ViewController: UIViewController {
 
     @IBAction
     func generateButtonTapped() {
+        var password = ""
+
+        if passwordTextField.text != "" {
+            password = passwordTextField.text ?? ""
+        } else {
+            passwordTextField.text = "Введите пароль"
+        }
+
         isPasswordGenerated = true
+        activityIndicator.startAnimating()
+        passwordTextField.isSecureTextEntry = true
+        passwordSelection.bruteForce(passwordToUnlock: password)
     }
 
     @IBAction
     func stopGenerateButtonTapped() {
         isPasswordGenerated = false
+        passwordSelection.stopGenerating()
     }
 }
 
@@ -79,6 +91,7 @@ extension ViewController: ViewDelegate{
     func finishPasswordGenerate(with text: String) {
         isPasswordGenerated = false
         passwordLabel.text = text
+        passwordTextField.isSecureTextEntry = false
         activityIndicator.stopAnimating()
     }
 }

@@ -8,9 +8,13 @@
 import Foundation
 
 final class PasswordSelection {
+    static let instance = PasswordSelection()
 
     var delegate: ViewDelegate?
+    private let queue = DispatchQueue(label: "PasswordGenerate", qos: .utility)
     private var isRuning = false
+
+    private init() {}
 
     func bruteForce(passwordToUnlock: String) {
         let allowedCharacters = String.printable.map { String($0) }
@@ -18,16 +22,25 @@ final class PasswordSelection {
         isRuning = true
         var password = ""
 
-        // Will strangely ends at 0000 instead of ~~~
-        while password != passwordToUnlock && isRuning { // Increase MAXIMUM_PASSWORD_SIZE value for more
-            password = generateBruteForce(password, fromArray: allowedCharacters)
+        queue.async {
+            while password != passwordToUnlock && self.isRuning {
+                password = self.generateBruteForce(password, fromArray: allowedCharacters)
 
-            //             Your stuff here
-            delegate?.appdateLabel(with: password)
-            // Your stuff here
+                DispatchQueue.main.async {
+                    self.delegate?.appdateLabel(with: password)
+                }
+            }
+
+            DispatchQueue.main.async {
+                let text: String
+                if !self.isRuning, password != passwordToUnlock {
+                    text = "Не удалось подобрать пароль"
+                } else {
+                    text = "Пароль - \(password)"
+                }
+                self.delegate?.finishPasswordGenerate(with: text)
+            }
         }
-
-        print(password)
     }
 
     func stopGenerating() {
@@ -59,3 +72,4 @@ final class PasswordSelection {
         return str
     }
 }
+
