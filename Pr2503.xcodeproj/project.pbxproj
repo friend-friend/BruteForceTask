@@ -13,6 +13,8 @@
 		264DFEE5260D07EF0035EA15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE3260D07EF0035EA15 /* Main.storyboard */; };
 		264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE6260D07F00035EA15 /* Assets.xcassets */; };
 		264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */; };
+		E43F8DAA299CF917008CEDA7 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F8DA9299CF917008CEDA7 /* String+Ext.swift */; };
+		E43F8DAE299CFA1B008CEDA7 /* PasswordSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F8DAD299CFA1B008CEDA7 /* PasswordSelection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		264DFEE6260D07F00035EA15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264DFEE9260D07F00035EA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264DFEEB260D07F00035EA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E43F8DA9299CF917008CEDA7 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		E43F8DAD299CFA1B008CEDA7 /* PasswordSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSelection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,65 @@
 		264DFEDC260D07EF0035EA15 /* Pr2503 */ = {
 			isa = PBXGroup;
 			children = (
+				E43F8DA6299CE3A5008CEDA7 /* Sources */,
+				E43F8DA7299CE3EC008CEDA7 /* Resources */,
+			);
+			path = Pr2503;
+			sourceTree = "<group>";
+		};
+		E43F8DA5299CE38D008CEDA7 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				264DFEDD260D07EF0035EA15 /* AppDelegate.swift */,
 				264DFEDF260D07EF0035EA15 /* SceneDelegate.swift */,
-				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E43F8DA6299CE3A5008CEDA7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E43F8DAC299CF99A008CEDA7 /* BruteForce */,
+				E43F8DAB299CF93C008CEDA7 /* Controller */,
+				E43F8DA8299CF8D2008CEDA7 /* Extensions */,
+				E43F8DA5299CE38D008CEDA7 /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E43F8DA7299CE3EC008CEDA7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				264DFEE3260D07EF0035EA15 /* Main.storyboard */,
 				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
 				264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */,
 				264DFEEB260D07F00035EA15 /* Info.plist */,
 			);
-			path = Pr2503;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E43F8DA8299CF8D2008CEDA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E43F8DA9299CF917008CEDA7 /* String+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E43F8DAB299CF93C008CEDA7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				264DFEE1260D07EF0035EA15 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E43F8DAC299CF99A008CEDA7 /* BruteForce */ = {
+			isa = PBXGroup;
+			children = (
+				E43F8DAD299CFA1B008CEDA7 /* PasswordSelection.swift */,
+			);
+			path = BruteForce;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +193,8 @@
 			files = (
 				264DFEE2260D07EF0035EA15 /* ViewController.swift in Sources */,
 				264DFEDE260D07EF0035EA15 /* AppDelegate.swift in Sources */,
+				E43F8DAE299CFA1B008CEDA7 /* PasswordSelection.swift in Sources */,
+				E43F8DAA299CF917008CEDA7 /* String+Ext.swift in Sources */,
 				264DFEE0260D07EF0035EA15 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC9X6PH2C6;
-				INFOPLIST_FILE = Pr2503/Info.plist;
+				INFOPLIST_FILE = Pr2503/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CC9X6PH2C6;
-				INFOPLIST_FILE = Pr2503/Info.plist;
+				INFOPLIST_FILE = Pr2503/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
