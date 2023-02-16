@@ -9,7 +9,8 @@ import Foundation
 
 final class PasswordSelection {
 
-    private var isRuning = true
+    var delegate: ViewDelegate?
+    private var isRuning = false
 
     func bruteForce(passwordToUnlock: String) {
         let allowedCharacters = String.printable.map { String($0) }
@@ -18,10 +19,11 @@ final class PasswordSelection {
         var password = ""
 
         // Will strangely ends at 0000 instead of ~~~
-        while password != passwordToUnlock { // Increase MAXIMUM_PASSWORD_SIZE value for more
+        while password != passwordToUnlock && isRuning { // Increase MAXIMUM_PASSWORD_SIZE value for more
             password = generateBruteForce(password, fromArray: allowedCharacters)
+
             //             Your stuff here
-            print(password)
+            delegate?.appdateLabel(with: password)
             // Your stuff here
         }
 

@@ -19,15 +19,14 @@ final class ViewController: UIViewController {
     @IBOutlet
     weak var stopGeneratePasswordButton: UIButton!
 
+    @IBOutlet
+    weak var activityIndicator: UIActivityIndicatorView!
+
     // MARK: - Details
 
-    private var isBlack: Bool = false {
+    private var isBlack = false {
         didSet {
-            if isBlack {
-                self.view.backgroundColor = .black
-            } else {
-                self.view.backgroundColor = .white
-            }
+            view.backgroundColor = isBlack ? .black : .white
         }
     }
 
@@ -38,18 +37,49 @@ final class ViewController: UIViewController {
         }
     }
 
+    private let passwordSelection = PasswordSelection()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        passwordSelection.delegate = self
+        activityIndicator.hidesWhenStopped = true
     }
 
     // MARK: - Actions
     
-    @IBAction func onBut(_ sender: Any) {
+    @IBAction
+    func onBut(_ sender: Any) {
         isBlack.toggle()
     }
 
+    @IBAction
+    func generateButtonTapped() {
+        isPasswordGenerated = true
+    }
+
+    @IBAction
+    func stopGenerateButtonTapped() {
+        isPasswordGenerated = false
+    }
+}
+
+protocol ViewDelegate {
+    func appdateLabel(with text: String)
+    func finishPasswordGenerate(with text: String)
+}
+
+extension ViewController: ViewDelegate{
+    func appdateLabel(with text: String) {
+        passwordLabel.text = text
+    }
+
+    func finishPasswordGenerate(with text: String) {
+        isPasswordGenerated = false
+        passwordLabel.text = text
+        activityIndicator.stopAnimating()
+    }
 }
 
